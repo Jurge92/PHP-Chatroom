@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Login Page</title>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+    <script type="text/javascript">
+        //<![CDATA[
+        function clearMessage() {
+            try {
+                var name = window.parent.frames["message"].document.getElementById("username");
+                if (name != "") {
+                    window.parent.frames["message"].location.reload();
+                }
+            } catch (e) {
+            }
+        }
+
+        var pictureIsUploaded = false;
+        var nameIsOk = false;
+
+        //username input checking
+        function checkInput() {
+            //username cannot be empty
+            var name = document.getElementById("name").value;
+
+            if (name.length <= 0) {
+                alert("Your name cannot be empty!")
+                //TODO stop
+
+            }
+            else if (!/^[a-zA-Z0-9]+$/.test(name)) {
+                alert("Don't use strange characters in the name!")
+                //TODO stop
+            }
+            else if (!pictureIsUploaded) {
+                alert("You should include a picture!")
+                //TODO stop)
+            } else {
+                nameIsOk = true;
+            }
+            return nameIsOk && pictureIsUploaded;
+            //username cannot contain illeagl character
+
+        }
+
+        function previewFile() {
+            var preview = document.querySelector('img'); //selects the query named img
+            var file = document.querySelector('input[type=file]').files[0]; //sames as here
+            var reader = new FileReader();
+
+            reader.onloadend = function () {
+                preview.src = reader.result;
+            }
+
+            if (file) {
+                reader.readAsDataURL(file); //reads the data as a URL
+                pictureIsUploaded = true;
+            } else {
+                preview.src = "";
+                pictureIsUploaded = false;
+            }
+        }
+
+
+        </script>
+    </head>
+
+    <body onload="clearMessage()">
+        <form method="post" action="login.php" enctype="multipart/form-data" onsubmit="javascript:checkInput()">
+            <table border="0" cellpadding="5" cellspacing="0">
+                <tr>
+                    <td>Please enter your user name:</td>
+                    <td><input class="text" name="name" id="name" type="text" size="20" maxlength="10" /></td>
+                </tr>
+                <tr>
+                    <td>Please upload a Picture:</td>
+                    <td><input type="file" name="userfile" id="userfile" onchange="previewFile()">
+                        <img id="picture" src="" height="50" width="50"></td>
+                </tr>
+                <tr align="center">
+                    <td colspan="2">
+                    <input class="button" type="submit" value="Go!" style="width: 150px" /></td>
+                </tr>
+            </table>
+        </form>
+    </body>
+
+</html>
