@@ -1,3 +1,5 @@
+Notes from before:
+
 I ran the program in Chrome and got every function working.
 
 Sometimes, there are something strange happening. The SVG content won’t load. I have no idea why this happens, it happens occasionally and seemingly at random times. If I wait for a while or reload the page multiple times, it starts working again. Maybe it has something to do with the server program (XAMPP), but really I have no idea. Seems to happen if the user triggers an error, like not providing a name on login. It’s really annoying, because I cannot seem to find a way around it. It just fixes itself after a while.
@@ -15,5 +17,3 @@ Both the colors and hypertext are working. This was quite a hassle, but no matte
 The online user works and displays the photos and names of all the users. I did a different design as I liked it more. 
 
 Every functions works for me (Chrome V47, OS X El Capitan), so please let me know if something is not working at your computer.
-
-- Joergen Duley
