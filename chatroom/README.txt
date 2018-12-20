@@ -16,4 +16,4 @@ The online user works and displays the photos and names of all the users. I did 
 
 Every functions works for me (Chrome V47, OS X El Capitan), so please let me know if something is not working at your computer.
 
-- Joergen Duley - 20337239
+- Joergen Duley
